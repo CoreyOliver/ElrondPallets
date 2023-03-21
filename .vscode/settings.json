@@ -1,0 +1,4 @@
+{
+    "window.titleSeparator": "",
+    "window.title": "${activeFolderShort}${separator}${rootNameShort}"
+}
