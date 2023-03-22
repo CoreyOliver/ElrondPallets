@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pallets 'R Us </title>
+</head>
+<body>
+    <h1>build it here</h1>
+    <li>
+        <ul><span>Ship Date:</span><input type="Date" placeholder="Ship Date"></ul>
+        <ul><span>Customer:</span><input type="test" list="Customer" placeholder="Customer"></ul>
+        <ul><form action="/pallet/buildPallet/createPallet" method="POST">
+            <input type="submit">
+            <input type="text" placeholder="Add Cartons" name="addCarton">
+            <!-- submit button for post request at end of DOC -->
+            <!-- client side to add lines for the formms -->
+        </form></ul>
+    </li>
+    <datalist id="Customer">
+        <option value="Dillards"></option>
+        <option value="Belk"></option>
+        <option value="Macys"></option>
+        <option value="Marine"></option>
+        <option value="Amazon"></option>
+        <option value="AAFES"></option>
+    </datalist>
+</body>
+</html>

@@ -1,0 +1,22 @@
+const mongoose = require('mongoose')
+
+const PalletSchema = new mongoose.Schema({
+    shipDate: {
+        type: Date,
+        required: true,
+    },
+    
+    accountName: {
+        type: String,
+        required: true,
+    },
+
+    cartonList: {
+        type: Array,
+        required: true,
+    },
+
+    
+})
+
+module.exports = mongoose.model('Pallet', PalletSchema)
