@@ -8,8 +8,10 @@ function addLineForCarton(e) {
 function clickThatButton(e) {
     if(e.key === 'Enter') {
         // e.preventDefault()
+        //on enter select the button to add another line
         // e.lastChild().click()
         // console.log(e.parentNode.lastChild)
+
     }
 }
 

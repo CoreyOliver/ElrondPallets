@@ -9,14 +9,22 @@
 </head>
 <body>
     <!-- <h1>build it here</h1> -->
-    <h2><span>Ship Date:   </span><input type="Date" placeholder="shipDate"></h2>
-    <h2><span>Customer:    </span>    <input type="text" list="Customer" placeholder="Customer"></h2>
+    <h2>
+        <span>Ship Date:   </span>
+        <input type="Date" placeholder="shipDate">
+    </h2>
+    <h2>
+        <span>Customer:</span>   
+        <input type="text" list="Customer" placeholder="Customer">
+    </h2>
     <h2>
         <span>Cartons:</span>
         <ul>
             <li><input type="text" name="cartons" id="carton" onkeyup="clickThatButton(event)">  <button onclick="addLineForCarton(this)">Add Carton</button></li>
         </ul>
     </h2>
+
+    <!--add a submit post request. Add together all inputs to get the pallet array  -->
 
     <datalist id="Customer">
         <option value="Dillards"></option>
