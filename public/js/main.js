@@ -1,7 +1,8 @@
 //in line function call to add line for pallet builder
-function addCarton(e) {
+function addCarton(event) {
     const newInput = document.createElement('input')
     const newButton = document.createElement('button')
+    const cartonOrig = document.getElementById('carton')
     //add elements to container with values assigned. 
 
     //id added based on incrementing line value
