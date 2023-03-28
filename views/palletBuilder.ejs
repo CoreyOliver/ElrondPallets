@@ -10,22 +10,29 @@
 <body>
     <!-- <h1>build it here</h1> -->
     <h2>
-        <span>Ship Date:   </span>
-        <input type="Date" placeholder="shipDate">
+        <span>Ship Date:</span>
+        <input id="shipDateS" type="Date" placeholder="shipDate">
     </h2>
     <h2>
         <span>Customer:</span>   
-        <input type="text" list="Customer" placeholder="Customer">
+        <input id="customerNameS" type="text" list="Customer" placeholder="Customer">
     </h2>
     <h2>
-        <span>Cartons:</span>
-        <ul id="cartonListContainer">
-            <li><input type="text" class="cartonList" id="carton" onkeydown="addCarton(event)">  <button onclick="addLineForCarton(this)">Delete Carton</button></li>
-        </ul>
+        <span>Cartons Add:</span>
+        <section id="cartonAddContainer">
+            <input type="text" class="cartonList" id="cartonIdAdd" onkeydown="clickThatButton(event)">  <button id="cartonAddButton" onclick="addCarton(event)">Add Carton</button>
+        </section>
     </h2>
+    <section id="cartonListContainer">
+        <h3>Cartons on Pallet:</h3>
+        <ul id="cartonList">
+            
+        </ul>
+    </section>
 
     <!--add a submit post request. Add together all inputs to get the pallet array  -->
 
+    <button id="post-button" onclick="postPallet(e)">Submit Pallet</button>
     <datalist id="Customer">
         <option value="Dillards"></option>
         <option value="Belk"></option>

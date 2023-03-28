@@ -18,5 +18,13 @@ module.exports = {
         catch(err) {
             console.log(err)
         }
+    },
+    createPallet: async(req, res) => {
+        try{
+            console.log(req)
+        }
+        catch(err) {
+            console.log(err)
+        }
     }
 }

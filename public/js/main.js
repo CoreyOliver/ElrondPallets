@@ -1,23 +1,27 @@
 //in line function call to add line for pallet builder
-function addCarton(event) {
-    const newInput = document.createElement('input')
-    const newButton = document.createElement('button')
-    const cartonOrig = document.getElementById('carton')
-    //add elements to container with values assigned. 
-
-    //id added based on incrementing line value
-
+function addCarton() {
+    const cartonIdToAdd = document.createElement('li')
+    const cartonID = document.getElementById('cartonIdAdd').value
+    const textNode = document.createTextNode(cartonID)
+    cartonIdToAdd.appendChild(textNode)
+    if(cartonID != '') {
+    document.getElementById('cartonListS').appendChild(cartonIdToAdd)
+    }
+    document.getElementById('cartonIdAdd').value = ''    
 }
 
-// function clickThatButton(e) {
-//     if(e.key === 'Enter') {
-//         let myButton = e.srcElement.parentNode.children[1]
-//         let childPlacement = (myButton.parentNode.parentNode.children.length)
-//         //on enter select the button to add another line
-//         myButton.click()
-        
-//         myButton.parentNode.parentNode.children[childPlacement].children[0].focus()
-//     }
-// }
+function clickThatButton(e) {
+    if(e.key === 'Enter') {
+        const myButton = document.getElementById('cartonAddButton')
+        myButton.click()
+    }
+}
 
-// console.log('connected')
+async function postPallet(e) {
+    const shipDateR = 
+    const customerNameR = 
+    const cartonListR = 
+    try{
+        const response
+    }
+}
