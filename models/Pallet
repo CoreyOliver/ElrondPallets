@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const PalletSchema = new mongoose.Schema({
     shipDate: {
-        type: Date,
+        type: String,
         required: true,
     },
     

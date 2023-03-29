@@ -13,15 +13,17 @@ module.exports = {
     palletBuildHome: async (req, res) =>{
         console.log(req.user)
         try{
-            res.render('palletBuilder.ejs')
+            res.render('palletHeader.ejs')
         }
         catch(err) {
             console.log(err)
         }
     },
-    createPallet: async(req, res) => {
+    createPalletHeader: async (req, res) => {
         try{
-            console.log(req)
+            await console.log(req.body.customerNameR, req.body.shipDateR)
+            console.log('Pallet Header Updated')
+            res.render('palletHeader.ejs')
         }
         catch(err) {
             console.log(err)
