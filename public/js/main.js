@@ -1,15 +1,21 @@
 //in line function call to add line for pallet builder
-function addCarton() {
-    const cartonIdToAdd = document.createElement('li')
-    const cartonID = document.getElementById('cartonIdAdd').value
-    const textNode = document.createTextNode(cartonID)
-    cartonIdToAdd.appendChild(textNode)
-    if(cartonID != '') {
-    document.getElementById('cartonListS').appendChild(cartonIdToAdd)
-    }
-    document.getElementById('cartonIdAdd').value = ''    
-}
 
+// add carton test one
+// function addCarton() {
+//     const cartonIdToAdd = document.createElement('li')
+//     const cartonID = document.getElementById('cartonIdAdd').value
+//     const textNode = document.createTextNode(cartonID)
+//     cartonIdToAdd.appendChild(textNode)
+//     if(cartonID != '') {
+//     document.getElementById('cartonListS').appendChild(cartonIdToAdd)
+//     }
+//     document.getElementById('cartonIdAdd').value = ''    
+// }
+
+
+function addCarton() {
+    
+}
 function clickThatButton(e) {
     if(e.key === 'Enter') {
         const myButton = document.getElementById('cartonAddButton')
@@ -17,11 +23,15 @@ function clickThatButton(e) {
     }
 }
 
-async function postPallet(e) {
-    const shipDateR = 
-    const customerNameR = 
-    const cartonListR = 
-    try{
-        const response
-    }
+function testPost() {
+    const cartonListR = document.getElementById('cartonListS').value
+    console.log(cartonListR)
 }
+// async function postPallet(e) {
+//     const shipDateR = document.getElementById('shipDateS').value
+//     const customerNameR = document.getElementById('customerNameS').value
+//     const cartonListR = 
+//     try{
+//         const response
+//     }
+// }
