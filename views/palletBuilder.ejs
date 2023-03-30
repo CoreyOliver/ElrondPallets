@@ -17,6 +17,10 @@
         <span>Customer:</span>   
         <input id="customerNameS" type="text" list="Customer" placeholder="Customer">
     </h2>
+    <h2>
+        <span>Carton List:</span>
+        <textarea id="cartonListS" type="test" placeholder="Carton List"  cols="16" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
+    </h2>
 
     <form action="/pallet/buildPallet/createPallet" method="POST">
         <input type="submit" placeholder="palletHeaderS" name="palletHeaderS" onclick="createPalletHeader()">

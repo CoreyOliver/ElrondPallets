@@ -13,21 +13,32 @@ module.exports = {
     palletBuildHome: async (req, res) =>{
         console.log(req.user)
         try{
-            res.render('palletHeader.ejs')
+            res.render('palletBuilder.ejs')
         }
         catch(err) {
             console.log(err)
         }
     },
-    createPalletHeader: async (req, res) => {
-        try{
-            await console.log(req.body.customerNameR, req.body.shipDateR)
-            console.log('Pallet Header Updated')
-            res.render('palletHeader.ejs')
-        }
-        catch(err) {
-            console.log(err)
-        }
+    // createPallet: async (req, res) => {
+    //     try{
+    //         await Pallet.create({shipDate: req.body.shipDateR, accountName: req.body.customerNameR, cartonList: []})
+    //         console.log(res.selected_item._id)
+    //         res.render('palletBuilder.ejs')
+    //     }
+    //     catch(err) {
+    //         console.log(err)
+    //     }
+    // }
+
+    createPallet: async (req, res) => {
+    try{
+        await Pallet.create({shipDate: req.body.shipDateR, accountName: req.body.customerNameR, cartonList: req.body.cartonListR})
+        res.render('palletBuilder.ejs')
+        // console.log(req.body.shipDateR, req.body.customerNameR, req.body.cartonListR)
+    }
+    catch(err) {
+        console.log(err)
+    }
     }
 }
 
