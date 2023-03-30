@@ -17,7 +17,7 @@ async function createPalletHeader() {
     const customerNameR = document.getElementById('customerNameS').value
     const cartonListR = document.getElementById('cartonListS').value.split('\n').filter(e => e != '')
     try{
-        const request = await fetch('/pallet/buildPallet/createPallet', {
+        const req = await fetch('/pallet/buildPallet/createPallet', {
             method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
@@ -27,7 +27,6 @@ async function createPalletHeader() {
             })
         })
         const data = await res.json()
-        console.log(cartonListR)
         
     }
     catch(err) {
