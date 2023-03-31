@@ -15,7 +15,11 @@
     </h2>
     <h2>
         <span>Customer:</span>   
-        <input id="customerNameS" type="text" list="Customer" placeholder="Customer">
+        <input id="customerNameS" type="text" list="customer" placeholder="Customer">
+    </h2>
+    <h2>
+        <span>DC:</span>
+        <input type="text" list="distCenter" id="dcS" placeholder="Distribution Center">
     </h2>
     <h2>
         <span>Carton List:</span>
@@ -28,13 +32,24 @@
 
     <a href="/logout">Log Out</a>
 
-    <datalist id="Customer">
+    <datalist id="customer">
         <option value="Dillards"></option>
         <option value="Belk"></option>
         <option value="Macys"></option>
         <option value="Marine"></option>
         <option value="Amazon"></option>
         <option value="AAFES"></option>
+    </datalist>
+    
+    <datalist id="distCenter">
+        <option value="737"></option>
+        <option value="744"></option>
+        <option value="Salisbury - 21"></option>
+        <option value="Valdosta - 22"></option>
+        <option value="Olathe - 23"></option>
+        <option value="Mabelvale - 24"></option>
+        <option value="Ft Worth - 27"></option>
+        <option value="Gilbert - 29"></option>
     </datalist>
     
     <script src="/js/main.js" type="text/javascript"></script>

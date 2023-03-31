@@ -23,10 +23,9 @@ module.exports = {
 
     createPallet: async (req, res) => {
         try{
-            await Pallet.create({shipDate: req.body.shipDateR, accountName: req.body.customerNameR, cartonList: req.body.cartonListR})
-            console.log(req.body)
+            await Pallet.create({shipDate: req.body.shipDateR, accountName: req.body.customerNameR, cartonList: req.body.cartonListR, distributionCenter: req.body.dcR})
             // res.render('palletBuilder.ejs')
-            // console.log(req.body.shipDateR, req.body.customerNameR, req.body.cartonListR)
+            console.log(req.body)
         }
         catch(err) {
             console.log(err)
