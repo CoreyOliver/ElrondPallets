@@ -9,7 +9,7 @@ router.get('/', ensureAuth, palletController.palletHome)
 
 router.get('/buildPallet', ensureAuth, palletController.palletBuildHome)
 
-router.post('/buildPallet/createPallet', palletController.createPallet)
+router.post('/createPallet', palletController.createPallet)
 
 
 // router.post('/createTodo', todosController.createTodo)
