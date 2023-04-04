@@ -31,13 +31,14 @@ module.exports = {
             })
             const palletToPrint = await Pallet.find({}).sort({_id: -1}).limit(1)
             //how to get this to render WTF
-            res.render('palletLabel.ejs', {
-                palletDC: palletToPrint.distributionCenter, 
-                palletAcct: palletToPrint.accountName, 
-                palletCount: palletToPrint.cartonList, 
-                shipDate: palletToPrint.shipDate
-            })
-            console.log(palletToPrint)
+            res.redirect('/pallet')
+            // res.render('palletLabel.ejs', {
+            //     palletDC: palletToPrint.distributionCenter, 
+            //     palletAcct: palletToPrint.accountName, 
+            //     palletCount: palletToPrint.cartonList, 
+            //     shipDate: palletToPrint.shipDate
+            // })
+            // console.log(palletToPrint)
             // res.render('palletBuilder.ejs')
             // console.log('Pallet Created')
         }
