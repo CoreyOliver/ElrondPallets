@@ -12,25 +12,25 @@ function textAreaAdjust(element) {
     element.style.height = (16+element.scrollHeight)+'px'
 }
 
-async function createPalletHeader() {
-    const shipDateR = document.getElementById('shipDateS').value
-    const customerNameR = document.getElementById('customerNameS').value
-    const cartonListR = document.getElementById('cartonListS').value.split('\n').filter(e => e != '')
-    const dcR = document.getElementById('dcS').value
-    try{
-        const req = await fetch('/pallet/createPallet', {
-            method: 'POST',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({
-                'shipDateR': shipDateR,
-                'customerNameR' : customerNameR,
-                'cartonListR' : cartonListR,
-                'dcR' : dcR
-            })
-        })        
-    }
-    catch(err) {
-        console.log(err)
-    }
-    // console.log(shipDateR, customerNameR)
-}
+// async function createPalletHeader() {
+//     const shipDateR = document.getElementById('shipDateS').value
+//     const customerNameR = document.getElementById('customerNameS').value
+//     const cartonListR = document.getElementById('cartonListS').value.split('\n').filter(e => e != '')
+//     const dcR = document.getElementById('dcS').value
+//     try{
+//         const req = await fetch('/pallet/createPallet', {
+//             method: 'POST',
+//             headers: {'Content-type': 'application/json'},
+//             body: JSON.stringify({
+//                 'shipDateR': shipDateR,
+//                 'customerNameR' : customerNameR,
+//                 'cartonListR' : cartonListR,
+//                 'dcR' : dcR
+//             })
+//         })        
+//     }
+//     catch(err) {
+//         console.log(err)
+//     }
+//     console.log('Pallet created')
+// }

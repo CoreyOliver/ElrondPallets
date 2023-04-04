@@ -23,7 +23,8 @@ const PalletSchema = new mongoose.Schema({
     },
 
     distributionCenter : {
-        type: String
+        type: String,
+        default: null
     }
     
 })

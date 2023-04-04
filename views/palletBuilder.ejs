@@ -8,27 +8,15 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <!-- <h1>build it here</h1> -->
-    <h2>
-        <span>Ship Date:</span>
-        <input id="shipDateS" type="Date" placeholder="shipDate">
-    </h2>
-    <h2>
-        <span>Customer:</span>   
-        <input id="customerNameS" type="text" list="customer" placeholder="Customer">
-    </h2>
-    <h2>
-        <span>DC:</span>
-        <input type="text" list="distCenter" id="dcS" placeholder="Distribution Center">
-    </h2>
-    <h2>
-        <span>Carton List:</span>
-        <textarea id="cartonListS" type="test" placeholder="Carton List"  cols="16" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
-    </h2>
-
-    <form>
-        <input type="submit" placeholder="palletHeaderS" name="palletHeaderS" onclick="createPalletHeader()">
+    <h1>build it here</h1>
+    <form action="/pallet/createPallet" method="POST">
+        <section><h2>Customer:</h2><input type="text"  id="customerNameS" placeholder="Customer" list="customer" name="customerNameR"></section>
+        <section><h2>Ship Date:</h2><input type="date"  id="shipDateS"  placeholder="shipDate" name="shipDateR"></section>
+        <section><h2>DC:</h2><input type="text"  id="dcS"  placeholder="Distribution Center" list="distCenter" name="dcR"></section>
+        <section><h2>Cartons:</h2><textarea type="text" id="cartonListS" cols="16" placeholder="Carton List" onkeyup="textAreaAdjust(this)" style="overflow:hidden" name="cartonListR"></textarea></section>
+        <input type="submit" placeholder="palletHeaderS" name="palletHeaderS">
     </form>
+
 
     <a href="/logout">Log Out</a>
 

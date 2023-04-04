@@ -5,10 +5,14 @@ const homeController = require('../controllers/home')
 const palletController = require('../controllers/pallet')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
+//getters
+//pallet homepage
 router.get('/', ensureAuth, palletController.palletHome)
-
+//form for creating pallets
 router.get('/buildPallet', ensureAuth, palletController.palletBuildHome)
-
+//render out previously recent pallets
+router.get('/:id', ensureAuth, palletController.palletLabel)
+//posting
 router.post('/createPallet', palletController.createPallet)
 
 
