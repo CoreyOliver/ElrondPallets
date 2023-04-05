@@ -1,25 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pallet Printer</title>
-    <link rel="stylesheet" href="/css/main.css" type="text/css">
-</head>
-<body>
+<%- include('partials/header') -%>
+
     <!-- get request with the most recent pallet -->
-    <ul>
-        <li><span>Customer:</span><span><% palletAcct %></span></li>
-        <li><span>Ship Date:</span><span><% shipDate %></span></li>
-        <li><span>DC:</span><span><% palletDC %></span></li>
-        <li><span>Customer:</span><span><% palletAcct %></span></li>
-        <li><span>Carton Count:</span><span><% palletCount %></span></li>
+    <ul class="pallet_label">
+        <li class="pallet_label_header"><h3>Customer:</h3><span><%= accountName %></span></li>
+        <li class="pallet_label_header"><h3>Ship Date:</h3><span><%= shipDate.toLocaleDateString('en-US') %></span></li>
+        <li class="pallet_label_header"><h3>DC:</h3><span><%= distributionCenter %></span></li>
+        <li class="pallet_label_header"><h3>Carton Count:</h3><span><%= cartonCount.length %></span></li>
     </ul>
     
-    <a href="/logout">Log Out</a>
+    <button id="printer" class="no_print" onclick="window.print()">Print Me</button>
+    <a href="/pallet/buildPallet" class="no_print">Build New</a>
 
-    <script src="/js/main.js" type="text/javascript"></script>
-
-</body>
-</html>
+    <%- include('partials/footer') -%>

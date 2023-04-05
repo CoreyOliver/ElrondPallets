@@ -11,7 +11,7 @@ router.get('/', ensureAuth, palletController.palletHome)
 //form for creating pallets
 router.get('/buildPallet', ensureAuth, palletController.palletBuildHome)
 //render out previously recent pallets
-router.get('/:id', ensureAuth, palletController.palletLabel)
+router.get('/label/:id', ensureAuth, palletController.palletLabel)
 //posting
 router.post('/createPallet', palletController.createPallet)
 

@@ -30,14 +30,7 @@ module.exports = {
                 distributionCenter: req.body.dcR
             })
             const palletToPrint = await Pallet.find({}).sort({_id: -1}).limit(1)
-            console.log(palletToPrint)
-            // how to get this to render WTF
-            // res.render('palletLabel.ejs', {
-            //         palletDC: palletToPrint.distributionCenter, 
-            //         palletAcct: palletToPrint.accountName, 
-            //         palletCount: palletToPrint.cartonList, 
-            //         shipDate: palletToPrint.shipDate
-            //     })
+            res.redirect(`/pallet/label/${palletToPrint[0]._id}`)
             }
             catch(err) {
                 console.log(err)
@@ -46,8 +39,17 @@ module.exports = {
     },
 
     palletLabel: async(req, res) => {
+        // console.log(req.params.id)
         try{
-            //attach parameters from get router. copy binary upload boom param pull
+            const palletR = await Pallet.find({_id: req.params.id})
+            // console.log(palletR, palletR[0].shipDate)
+            res.render('palletLabel.ejs', {
+                shipDate: palletR[0].shipDate,
+                accountName: palletR[0].accountName,
+                distributionCenter: palletR[0].distributionCenter,
+                cartonCount: palletR[0].cartonList
+            })
+            
         }
         catch(err) {
             console.log(err)

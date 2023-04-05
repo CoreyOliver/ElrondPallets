@@ -1,3 +1,31 @@
-
+.pallet_label {
+    margin: 5%;
+    font-size: 25px;
+    max-width: 970px;
+    min-width: 640px;
+}
+.pallet_label_header, .pallet_label_header>* {
+    margin: .5%;
+    padding: .5%;
+}
+li {
+    list-style: none;
+}
+    
+@media print {
+    body{
+        width: 4in;
+        height: 6in;
+    }
+    .no_print{
+      display:none;
+    }
+    .pallet_label {
+        position: fixed;
+        transform: translate(15%, 30%);
+        font-size: 50px;
+        margin: 15px 0;
+    }
+  }
 
 
