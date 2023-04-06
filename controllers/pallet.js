@@ -54,7 +54,31 @@ module.exports = {
         catch(err) {
             console.log(err)
         }
+    },
+
+    recCustomer: async(req, res) => {
+        try {
+            res.render('recCustomerList.ejs')
+        }
+        catch(err) {
+            console.log(err)
+        }
+    },
+
+    recCustomerDate: async(req,res) => {
+        try {
+            const datesToShip = await Pallet.find({accountName: req.params.customerName}).sort({shipDate: 'desc'}).exec()
+            res.render('recCustDateList.ejs' , {
+                pallets: datesToShip
+            })
+            console.log(datesToShip)
+        }
+        catch(err) {
+            console.log(err)
+        }
     }
+
+
 }
 
 //this is main

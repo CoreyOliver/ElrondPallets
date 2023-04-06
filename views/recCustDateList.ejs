@@ -1,0 +1,12 @@
+<%- include('partials/header') -%>
+<h1>Customer to reconcile</h1>
+
+<ul>
+    <% pallets.forEach( el => { %>
+        <li class='PalletDate' data-id='<%=el._id%>'>
+            <a href="/pallet/reconcile/<%= el.accountName%>/<%= el.shipdate%>"><%= el.shipDate.toLocaleDateString('en-US') %></a>
+        </li>
+<% }) %>  
+</ul>
+
+<%-include('partials/footer') -%>

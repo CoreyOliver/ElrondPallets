@@ -4,6 +4,7 @@ const authController = require('../controllers/auth')
 const homeController = require('../controllers/home')
 const palletController = require('../controllers/pallet')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
+const pallet = require('../controllers/pallet')
 
 //getters
 //pallet homepage
@@ -12,6 +13,12 @@ router.get('/', ensureAuth, palletController.palletHome)
 router.get('/buildPallet', ensureAuth, palletController.palletBuildHome)
 //render out previously recent pallets
 router.get('/label/:id', ensureAuth, palletController.palletLabel)
+//render list
+router.get('/reconcile', palletController.recCustomer)
+//pallet list for customer to select date
+router.get('/reconcile/:customerName', palletController.recCustomerDate)
+
+
 //posting
 router.post('/createPallet', palletController.createPallet)
 
