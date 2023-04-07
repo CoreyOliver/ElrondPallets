@@ -1,12 +1,15 @@
 <%- include('partials/header') -%>
-<h1>Customer to reconcile</h1>
+<h1>Date to reconcile</h1>
 
 <ul>
     <% pallets.forEach( el => { %>
         <li class='PalletDate' data-id='<%=el._id%>'>
-            <a href="/pallet/reconcile/<%= el.accountName%>/<%= el.shipdate%>"><%= el.shipDate.toLocaleDateString('en-US') %></a>
+            <a href="/pallet/reconcile/<%= el.accountName %>/<%= el.shipDate %>"><%= el.shipDate.toLocaleDateString('en-US') %></a>
+            <span><%= el %></span>
         </li>
 <% }) %>  
+
+<!-- find a way to filter out these dates -->
 </ul>
 
 <%-include('partials/footer') -%>

@@ -24,7 +24,7 @@ module.exports = {
     createPallet: async (req, res) => {
         try{
             await Pallet.create({
-                shipDate: req.body.shipDateR, 
+                shipDate: req.body.shipDateR.moment().format('MM/DD/YY'), 
                 accountName: req.body.customerNameR, 
                 cartonList: req.body.cartonListR.split('\r\n').filter(e => e != ''), 
                 distributionCenter: req.body.dcR

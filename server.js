@@ -13,7 +13,6 @@ const mainRoutes = require('./routes/main')
 const palletRoutes = require('./routes/pallet')
 
 
-
 // config
 require('dotenv').config({path: './config/.env'})
 require('./config/passport')(passport)
