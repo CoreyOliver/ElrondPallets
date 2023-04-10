@@ -1,4 +1,19 @@
 <%- include('partials/header') -%>
-<h1>Pallet List</h1>
+
+<section>
+<h1><%= pallets[0].shipDate.slice(-5) %>:</h1>
+<h2><%= pallets[0].accountName %>:</h2>
+</section>
+
+<ul>
+    <% pallets.forEach( el => { %>
+        <li class='palletListByDate' data-id='<%=el._id%>'>
+            <h3>DC: <%=el.distributionCenter %></h3>
+            <h3>Carton Count:<%= el.cartonList.length %></h3>
+        </li>
+<% }) %>  
+
+<!-- find a way to filter out these dates -->
+</ul>
 
 <%-include('partials/footer') -%>

@@ -4,8 +4,7 @@
 <ul>
     <% pallets.forEach( el => { %>
         <li class='PalletDate' data-id='<%=el._id%>'>
-            <a href="/pallet/reconcile/<%= el.accountName %>/<%= el.shipDate %>"><%= el.shipDate.toLocaleDateString('en-US') %></a>
-            <span><%= el %></span>
+            <a href="/pallet/reconcile/<%= el.accountName %>/<%= el.shipDate %>"><%= el.shipDate %></a>
         </li>
 <% }) %>  
 

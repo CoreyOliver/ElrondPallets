@@ -11,6 +11,13 @@
 li {
     list-style: none;
 }
+.palletListByDate {
+    border: 2px black solid;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
     
 @media print {
     body{

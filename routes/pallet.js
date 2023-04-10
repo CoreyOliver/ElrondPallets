@@ -17,6 +17,8 @@ router.get('/label/:id', ensureAuth, palletController.palletLabel)
 router.get('/reconcile', palletController.recCustomer)
 //pallet list for customer to select date
 router.get('/reconcile/:customerName', palletController.recCustomerDate)
+//pallet list for customer & date
+router.get('/reconcile/:customerName/:shipDate', palletController.recCustDatePalletList)
 
 
 //posting

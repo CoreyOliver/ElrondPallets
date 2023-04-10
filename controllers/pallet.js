@@ -23,8 +23,9 @@ module.exports = {
 
     createPallet: async (req, res) => {
         try{
+            console.log(req.body.shipDateR)
             await Pallet.create({
-                shipDate: req.body.shipDateR.moment().format('MM/DD/YY'), 
+                shipDate: req.body.shipDateR,
                 accountName: req.body.customerNameR, 
                 cartonList: req.body.cartonListR.split('\r\n').filter(e => e != ''), 
                 distributionCenter: req.body.dcR
@@ -39,10 +40,8 @@ module.exports = {
     },
 
     palletLabel: async(req, res) => {
-        // console.log(req.params.id)
         try{
             const palletR = await Pallet.find({_id: req.params.id})
-            // console.log(palletR, palletR[0].shipDate)
             res.render('palletLabel.ejs', {
                 shipDate: palletR[0].shipDate,
                 accountName: palletR[0].accountName,
@@ -74,6 +73,21 @@ module.exports = {
             console.log(datesToShip)
         }
         catch(err) {
+            console.log(err)
+        }
+    },
+
+    recCustDatePalletList: async(req, res) => {
+        try{
+            const palletsToCheck = await Pallet.find({
+                accountName: req.params.customerName,
+                shipDate: req.params.shipDate
+            }).sort({distributionCenter: 'desc'}).exec()
+            res.render('palletList.ejs', {
+                pallets: palletsToCheck
+            })
+        }
+        catch(err){
             console.log(err)
         }
     }
