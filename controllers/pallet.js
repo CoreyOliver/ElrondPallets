@@ -79,10 +79,15 @@ module.exports = {
 
     recCustDatePalletList: async(req, res) => {
         try{
-            const palletsToCheck = await Pallet.find({
-                accountName: req.params.customerName,
-                shipDate: req.params.shipDate
-            }).sort({distributionCenter: 'desc'}).exec()
+            const palletsToCheck = await Pallet.aggregate(
+                [{
+                    $match : {
+                        accountName: req.params.customerName,
+                        shipDate: req.params.shipDate
+                    }
+//using the aggregate instead of find. Grouping assigns characteristics afterwards?
+                }])
+            console.log(palletsToCheck)
             res.render('palletList.ejs', {
                 pallets: palletsToCheck
             })
@@ -95,4 +100,3 @@ module.exports = {
 
 }
 
-//this is main
