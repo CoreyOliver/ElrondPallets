@@ -6,10 +6,11 @@
 </section>
 
 <ul>
-    <% pallets.forEach( el => { %>
+    <% palletsAgg.forEach( el => { %>
         <li class='palletListByDate' data-id='<%=el._id%>'>
-            <h3>DC: <%=el.distributionCenter %></h3>
-            <h3>Carton Count:<%= el.cartonList.length %></h3>
+            <h3>DC: <%=el._id %></h3>
+            <h3>Pallet Count: <%=el.palletCount %></h3>
+            <h3>Carton Count:<%= el.totalCount %></h3>
         </li>
 <% }) %>  
 

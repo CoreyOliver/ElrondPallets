@@ -23,14 +23,15 @@ module.exports = {
 
     createPallet: async (req, res) => {
         try{
-            console.log(req.body.shipDateR)
+            console.log(req.body)
             await Pallet.create({
                 shipDate: req.body.shipDateR,
                 accountName: req.body.customerNameR, 
-                cartonList: req.body.cartonListR.split('\r\n').filter(e => e != ''), 
+                cartonList: req.body.cartonListR.split('\r\n').filter(e => e != ''),
                 distributionCenter: req.body.dcR
             })
             const palletToPrint = await Pallet.find({}).sort({_id: -1}).limit(1)
+            console.log(palletToPrint)
             res.redirect(`/pallet/label/${palletToPrint[0]._id}`)
             }
             catch(err) {
@@ -79,17 +80,28 @@ module.exports = {
 
     recCustDatePalletList: async(req, res) => {
         try{
-            const palletsToCheck = await Pallet.aggregate(
-                [{
-                    $match : {
+            const palletsAgg = await Pallet.aggregate([
+                    {$match : {
                         accountName: req.params.customerName,
                         shipDate: req.params.shipDate
-                    }
-//using the aggregate instead of find. Grouping assigns characteristics afterwards?
-                }])
-            console.log(palletsToCheck)
+                    }},      
+                    {$group : {
+                        _id: '$distributionCenter',
+                        palletCount: {$count: {}},
+                        totalCount: {$sum: {$size: "$cartonList"}}
+                    }}
+            ])
+            const palletsToCheck = await Pallet.aggregate([{
+                $match: {
+                    accountName: req.params.customerName,
+                    shipDate: req.params.shipDate
+                }
+
+            }])
+            console.log(palletsToCheck, palletsAgg)
             res.render('palletList.ejs', {
-                pallets: palletsToCheck
+                pallets: palletsToCheck,
+                palletsAgg: palletsAgg
             })
         }
         catch(err){
