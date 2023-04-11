@@ -4,7 +4,8 @@
 <ul>
     <% pallets.forEach( el => { %>
         <li class='PalletDate' data-id='<%=el._id%>'>
-            <a href="/pallet/reconcile/<%= el.accountName %>/<%= el.shipDate %>"><%= el.shipDate %></a>
+            <a href="/pallet/reconcile/<%= el.accountName %>/<%= el._id %>"><%= el._id %></a>
+            <span>Total Pallet Count:<%= el.totalPallets%></span>
         </li>
 <% }) %>  
 

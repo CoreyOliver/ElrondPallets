@@ -67,7 +67,18 @@ module.exports = {
 
     recCustomerDate: async(req,res) => {
         try {
-            const datesToShip = await Pallet.find({accountName: req.params.customerName}).sort({shipDate: 'desc'}).exec()
+            const datesToShip = await Pallet.aggregate([
+                {$match: {
+                    accountName: req.params.customerName
+                }},
+
+                {$group : {
+                    _id: '$shipDate',
+                    accountName: {$first: '$accountName'},
+                    totalPallets: {$count: {}}
+                }}
+            ])
+            console.log(datesToShip)
             res.render('recCustDateList.ejs' , {
                 pallets: datesToShip
             })
@@ -89,6 +100,9 @@ module.exports = {
                         _id: '$distributionCenter',
                         palletCount: {$count: {}},
                         totalCount: {$sum: {$size: "$cartonList"}}
+                    }},
+                    {$sort : {
+                        _id: -1
                     }}
             ])
             const palletsToCheck = await Pallet.aggregate([{
