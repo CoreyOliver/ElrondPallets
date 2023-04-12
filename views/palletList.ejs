@@ -11,6 +11,7 @@
             <h3>DC: <%=el._id %></h3>
             <h3>Pallet Count: <%=el.palletCount %></h3>
             <h3>Carton Count:<%= el.totalCount %></h3>
+            <a href="/pallet/reconcile/<%=el.shipDate%>/<%=el._id%>">Pallet list</a>
         </li>
 <% }) %>  
 

@@ -76,6 +76,10 @@ module.exports = {
                     _id: '$shipDate',
                     accountName: {$first: '$accountName'},
                     totalPallets: {$count: {}}
+                }},
+
+                {$sort : {
+                    _id: 1
                 }}
             ])
             console.log(datesToShip)
@@ -98,6 +102,7 @@ module.exports = {
                     }},      
                     {$group : {
                         _id: '$distributionCenter',
+                        shipDate: { $first: '$shipDate'},
                         palletCount: {$count: {}},
                         totalCount: {$sum: {$size: "$cartonList"}}
                     }},
