@@ -1,0 +1,16 @@
+<%- include('partials/header') -%>
+<h1><%= pallets.shipDate %> </h1>
+<h1><%= pallets._id %> </h1>
+
+<ul>
+    <% pallets.forEach( el => { %>
+        <li class='PalletDate' data-id='<%=el._id%>'>
+            <h3>DC: <%=el.distributionCenter %></h3>
+            <h3>cartons<%=el.cartonList %></h3>
+        </li>
+<% }) %>  
+
+<!-- find a way to filter out these dates -->
+</ul>
+
+<%-include('partials/footer') -%>

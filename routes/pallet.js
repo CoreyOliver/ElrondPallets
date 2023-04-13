@@ -20,7 +20,7 @@ router.get('/reconcile/:customerName', palletController.recCustomerDate)
 //pallet list for customer & date
 router.get('/reconcile/:customerName/:shipDate', palletController.recCustDatePalletList)
 //pallet breakdown by DC
-router.get('/reconcile/:shipDate/:dc', //add the controller)
+router.get('/reconcile/skid/:dc/:shipDate', palletController.recDCPalletList)
 
 
 //posting

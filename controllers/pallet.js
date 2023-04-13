@@ -107,7 +107,7 @@ module.exports = {
                         totalCount: {$sum: {$size: "$cartonList"}}
                     }},
                     {$sort : {
-                        _id: -1
+                        _id: 1
                     }}
             ])
             const palletsToCheck = await Pallet.aggregate([{
@@ -121,6 +121,35 @@ module.exports = {
             res.render('palletList.ejs', {
                 pallets: palletsToCheck,
                 palletsAgg: palletsAgg
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    },
+
+    recDCPalletList: async(req, res) => {
+        try{
+            const palletsDC = await Pallet.aggregate([
+                    {$match : {
+                        distributionCenter: req.params.dc,
+                        shipDate: req.params.shipDate
+                    }},  
+                    {$group : {
+                        _id: '$distributionCenter',
+                        shipDate: { $first: '$shipDate'},
+                        cartonList: {$first: '$cartonList'},
+                        palletCount: {$count: {}},
+                        totalCount: {$sum: {$size: "$cartonList"}}
+                    }},
+                    {$sort : {
+                        _id: -1
+                    }}
+            ])
+
+            console.log(palletsDC, req.params)
+            res.render('dcPalletList.ejs', {
+                pallets: palletsDC
             })
         }
         catch(err){
