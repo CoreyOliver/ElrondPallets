@@ -5,6 +5,7 @@ const homeController = require('../controllers/home')
 const palletController = require('../controllers/pallet')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 const pallet = require('../controllers/pallet')
+const methodOverride = require('method-override')
 
 //getters
 //pallet homepage
@@ -27,13 +28,11 @@ router.get('/reconcile/skid/:dc/:shipDate', palletController.recDCPalletList)
 router.post('/createPallet', palletController.createPallet)
 
 
-// router.post('/createTodo', todosController.createTodo)
+//put/update
+router.put('/deleteCarton/:id/:carton', palletController.deleteCarton)
 
-// router.put('/markComplete', todosController.markComplete)
-
-// router.put('/markIncomplete', todosController.markIncomplete)
-
-// router.delete('/deleteTodo', todosController.deleteTodo)
-
+//delete
+// -- add delete empty pallets
+// -- add delete pallets by choice
 
 module.exports = router

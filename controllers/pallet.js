@@ -135,13 +135,6 @@ module.exports = {
                         distributionCenter: req.params.dc,
                         shipDate: req.params.shipDate
                     }},  
-                    {$group : {
-                        _id: '$distributionCenter',
-                        shipDate: { $first: '$shipDate'},
-                        cartonList: {$first: '$cartonList'},
-                        palletCount: {$count: {}},
-                        totalCount: {$sum: {$size: "$cartonList"}}
-                    }},
                     {$sort : {
                         _id: -1
                     }}
@@ -153,6 +146,19 @@ module.exports = {
             })
         }
         catch(err){
+            console.log(err)
+        }
+    },
+
+    deleteCarton: async(req, res) => {
+        try {
+            const cartonToDelete = await Pallet.findByIdAndUpdate(req.params.id, {
+                $pull: {cartonList: req.params.carton}
+            }).exec()
+            console.log(req.params, cartonToDelete)
+            res.redirect(`/pallet/reconcile/skid/${cartonToDelete.distributionCenter}/${cartonToDelete.shipDate}`)
+        }
+        catch(err) {
             console.log(err)
         }
     }

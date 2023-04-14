@@ -1,16 +1,26 @@
 <%- include('partials/header') -%>
-<h1><%= pallets.shipDate %> </h1>
-<h1><%= pallets._id %> </h1>
+
+<h1><%= pallets[0].shipDate.slice(5) %> </h1>
+<h1><%= pallets[0].distributionCenter %> </h1>
 
 <ul>
-    <% pallets.forEach( el => { %>
-        <li class='PalletDate' data-id='<%=el._id%>'>
-            <h3>DC: <%=el.distributionCenter %></h3>
-            <h3>cartons<%=el.cartonList %></h3>
+    <% pallets.forEach( (el, i) => { %>
+        <li class='palletReconcile' data-id='<%=el._id%>'>
+            <h3>Pallet <%=(i + 1) %></h3>
+            <h3>Count: <%=el.cartonList.length %> pcs</h3>
+            <ul>
+                <% el.cartonList.forEach(e => { %>
+                    <li>
+                        <span><%= e %></span>
+                        <form action="/pallet/deleteCarton/<%=el._id%>/<%=e%>?_method=PUT" method="POST">
+                            <input type="submit" name="_method" value="PUT">
+                        </form> 
+                    </li>
+                    
+                <% }) %>
+            </ul>
         </li>
-<% }) %>  
-
-<!-- find a way to filter out these dates -->
+    <% }) %>  
 </ul>
 
 <%-include('partials/footer') -%>

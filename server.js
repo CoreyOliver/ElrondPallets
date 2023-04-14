@@ -11,7 +11,7 @@ const cors = require('cors')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const palletRoutes = require('./routes/pallet')
-
+const methodOverride = require('method-override')
 
 // config
 require('dotenv').config({path: './config/.env'})
@@ -26,6 +26,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(logger('dev'))
 app.use(cors())
+app.use(methodOverride('_method'))
 
 //sessions
 app.use(

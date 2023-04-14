@@ -18,6 +18,16 @@ li {
     justify-content: space-around;
     align-items: center;
 }
+.palletReconcile {
+    border: 2px black solid;
+    border-left: 0;
+    border-right: 0;
+
+}
+.palletReconcile > ul > li > *{
+    margin: 0 5% 0 0;
+}
+
     
 @media print {
     body{
