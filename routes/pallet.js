@@ -9,11 +9,11 @@ const methodOverride = require('method-override')
 
 //getters
 //pallet homepage
-router.get('/', ensureAuth, palletController.palletHome)
+router.get('/', /*ensureAuth,*/ palletController.palletHome)
 //form for creating pallets
-router.get('/buildPallet', ensureAuth, palletController.palletBuildHome)
+router.get('/buildPallet', /*ensureAuth,*/ palletController.palletBuildHome)
 //render out previously recent pallets
-router.get('/label/:id', ensureAuth, palletController.palletLabel)
+router.get('/label/:id', /*ensureAuth,*/ palletController.palletLabel)
 //render list
 router.get('/reconcile', palletController.recCustomer)
 //pallet list for customer to select date
