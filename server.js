@@ -18,7 +18,6 @@ require('dotenv').config({path: './config/.env'})
 require('./config/passport')(passport)
 
 //DB connection
-connectDB()
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -36,17 +35,21 @@ app.use(
         saveUninitialized: false,
         store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
-)
-
-// Passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
-
-app.use(flash())
-
-app.use('/', mainRoutes)
-app.use('/pallet', palletRoutes)
-
-app.listen(process.env.PORT, ()=>{
-    console.log(`Server is running on ${process.env.PORT}, you better catch it!`)
-})    
+    )
+    
+    // Passport middleware
+    app.use(passport.initialize())
+    app.use(passport.session())
+    
+    app.use(flash())
+    
+    app.use('/', mainRoutes)
+    app.use('/pallet', palletRoutes)
+    
+    
+    connectDB().then(() => {
+        console.log('db connected')
+        app.listen(process.env.PORT, ()=>{
+            console.log(`Server is running on ${process.env.PORT}, you better catch it!`)
+        })  
+    })
